@@ -7,24 +7,13 @@ public:
 	vector<int> of(int number)
 	{
 		vector<int> result = {};
-		if (number > 1)
+		for (int divisor = 2; number > 1; divisor++)
 		{
-			int divisor = 2;
-			if (number == 4 || number == 6 || number == 9)
+			while (number % divisor == 0)
 			{
-				for (divisor = 2; number > 1; divisor++)
-				{
-					while (number % divisor == 0)
-					{
-						result.push_back(divisor);
-						number /= divisor;
-					}
-				}
+				result.push_back(divisor);
+				number /= divisor;
 			}
-			else
-			{
-				result.push_back(number);
-			}			
 		}
 		return result;
 	}
